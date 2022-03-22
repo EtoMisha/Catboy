@@ -7,6 +7,10 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class Controller {
+    @RequestMapping("")
+    public String ping() {
+        return ("Hello");
+    }
     @RequestMapping("/ping")
     public String ping() {
         return sendRequest("https://api.catboys.com/ping");
