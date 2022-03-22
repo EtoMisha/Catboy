@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class Controller {
     @RequestMapping("")
-    public String ping() {
+    public String empty() {
         return ("Hello");
     }
     @RequestMapping("/ping")
