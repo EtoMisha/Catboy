@@ -13,7 +13,10 @@ public class Controller {
     }
     @RequestMapping("/ping")
     public String ping() {
-        return sendRequest("https://api.catboys.com/ping");
+        String url = "https://api.catboys.com/ping";
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity <String> response = restTemplate.getForEntity(url, String.class);
+        return response.getBody();
     }
     @RequestMapping("/catboy")
     public String catboy() {
