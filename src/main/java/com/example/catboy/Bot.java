@@ -33,7 +33,7 @@ public class Bot extends TelegramLongPollingBot {
      */
     @Override
     public String getBotUsername() {
-        return ”CatboySpring_bot”;
+        return "CatboySpring_bot";
     }
 
     /**
@@ -42,6 +42,6 @@ public class Bot extends TelegramLongPollingBot {
      */
     @Override
     public String getBotToken() {
-        return ”5122391230:AAHNEX9WYLOJKqjvHYfEg-u_UhLs_N25-p8”;
+        return "5122391230:AAHNEX9WYLOJKqjvHYfEg-u_UhLs_N25-p8";
     }
 }
