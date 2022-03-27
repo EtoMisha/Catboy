@@ -1,18 +1,14 @@
 package com.example.catboy;
 
-import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-//@Component
 public class Bot extends TelegramLongPollingBot {
 
     @Override
@@ -30,26 +26,8 @@ public class Bot extends TelegramLongPollingBot {
         if (update.hasMessage() && update.getMessage().hasText()) {
             String chatId = update.getMessage().getChatId().toString();
             String message = update.getMessage().getText().trim();
-            String serverAnswer;
-            String answer = "";
-            if (message.equals("/ping")) {
-                serverAnswer = sendRequest("https://api.catboys.com/ping");
-                try {
-                    answer = "Catboy says: " + parseAnswer(serverAnswer, "catboy_says");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-            } else if (message.equals("/catboy")) {
-                serverAnswer = sendRequest("https://api.catboys.com/catboy");
-                try {
-                    answer = parseAnswer(serverAnswer, "response");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-            }
-            else {
-                answer = "Unknown command. Type /ping or /catboy";
-            }
+
+            String answer = makeAnswer(message);
 
             SendMessage send = new SendMessage();
             send.setChatId(chatId);
@@ -68,8 +46,39 @@ public class Bot extends TelegramLongPollingBot {
         return response.getBody();
     }
 
-    private String parseAnswer(String answer, String field) throws ParseException {
-        JSONObject jsonObject = new JSONObject(answer);
+    private String parseAnswer(String serverAnswer, String field) throws ParseException {
+        JSONObject jsonObject = new JSONObject(serverAnswer);
         return (String) jsonObject.get(field);
+    }
+
+    private String makeAnswer(String message) {
+        String serverAnswer;
+        String answer = "";
+
+        switch (message) {
+            case "/start":
+                answer = "Hi! It's test bot. I know commands /ping and /catboy";
+                break;
+            case "/ping":
+                serverAnswer = sendRequest("https://api.catboys.com/ping");
+                try {
+                    answer = "Catboy says: " + parseAnswer(serverAnswer, "catboy_says");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "/catboy":
+                serverAnswer = sendRequest("https://api.catboys.com/catboy");
+                try {
+                    answer = parseAnswer(serverAnswer, "response");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                break;
+            default:
+                answer = "Unknown command. Try /ping or /catboy";
+                break;
+        }
+        return answer;
     }
 }
