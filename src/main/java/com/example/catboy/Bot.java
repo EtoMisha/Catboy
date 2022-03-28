@@ -40,45 +40,20 @@ public class Bot extends TelegramLongPollingBot {
         }
     }
 
-    private String sendRequest(String url) {
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
-        return response.getBody();
-    }
-
-    private String parseAnswer(String serverAnswer, String field) throws ParseException {
-        JSONObject jsonObject = new JSONObject(serverAnswer);
-        return (String) jsonObject.get(field);
-    }
-
     private String makeAnswer(String message) {
-        String serverAnswer;
-        String answer = "";
+//        String serverAnswer;
+//        String answer = "";
 
         switch (message) {
             case "/start":
-                answer = "Hi! It's test bot. I know commands /ping and /catboy";
-                break;
+                return Controller.commandStart();
             case "/ping":
-                serverAnswer = sendRequest("https://api.catboys.com/ping");
-                try {
-                    answer = "Catboy says: " + parseAnswer(serverAnswer, "catboy_says");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                break;
+                return Controller.commandPing();
             case "/catboy":
-                serverAnswer = sendRequest("https://api.catboys.com/catboy");
-                try {
-                    answer = parseAnswer(serverAnswer, "response");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                break;
+                return Controller.commandCatboy();
             default:
-                answer = "Unknown command. Try /ping or /catboy";
-                break;
+                return "Unknown command. Try /ping or /catboy";
         }
-        return answer;
     }
+
 }

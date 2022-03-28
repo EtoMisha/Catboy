@@ -10,12 +10,15 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 public class CatboyApplication {
 
     public static void main(String[] args) throws TelegramApiException {
+
         try {
             TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
             botsApi.registerBot(new Bot());
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+
+        SpringApplication.run(CatboyApplication.class, args);
     }
 
 
