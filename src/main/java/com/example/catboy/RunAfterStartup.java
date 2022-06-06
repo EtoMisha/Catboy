@@ -1,15 +1,17 @@
 package com.example.catboy;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
-@SpringBootApplication
-public class CatboyApplication {
+@Component
+public class RunAfterStartup {
 
-    public static void main(String[] args) throws TelegramApiException {
+    @EventListener(ApplicationReadyEvent.class)
+    public void runAfterStartup() {
         try {
             TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
             botsApi.registerBot(new Bot());
@@ -17,7 +19,5 @@ public class CatboyApplication {
             e.printStackTrace();
         }
 
-        SpringApplication.run(CatboyApplication.class, args);
     }
-
 }
