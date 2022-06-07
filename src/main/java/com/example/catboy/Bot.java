@@ -7,14 +7,16 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class Bot extends TelegramLongPollingBot {
 
+//    private final BotConfig botconfig = new BotConfig();
+
     @Override
     public String getBotUsername() {
-        return "CatboySpring_bot";
+        return "CatboySpring_bot";//botconfig.getUsername();
     }
 
     @Override
     public String getBotToken() {
-        return "5122391230:AAHNEX9WYLOJKqjvHYfEg-u_UhLs_N25-p8";
+        return "5122391230:AAHNEX9WYLOJKqjvHYfEg-u_UhLs_N25-p8";//botconfig.getToken();
     }
 
     @Override
@@ -23,7 +25,7 @@ public class Bot extends TelegramLongPollingBot {
             String chatId = update.getMessage().getChatId().toString();
             String message = update.getMessage().getText().trim();
 
-            String answer = BotHandler.makeAnswer(message);
+            String answer = Handler.getBotAnswer(message);
 
             SendMessage send = new SendMessage();
             send.setChatId(chatId);
