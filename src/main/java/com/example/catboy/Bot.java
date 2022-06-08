@@ -7,16 +7,22 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class Bot extends TelegramLongPollingBot {
 
-//    private final BotConfig botconfig = new BotConfig();
+    private final String USERNAME;
+    private final String TOKEN;
+
+    public Bot(String username, String token) {
+        USERNAME = username;
+        TOKEN = token;
+    }
 
     @Override
     public String getBotUsername() {
-        return "CatboySpring_bot";//botconfig.getUsername();
+        return USERNAME;
     }
 
     @Override
     public String getBotToken() {
-        return "5122391230:AAHNEX9WYLOJKqjvHYfEg-u_UhLs_N25-p8";//botconfig.getToken();
+        return TOKEN;
     }
 
     @Override
