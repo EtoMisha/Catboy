@@ -2,15 +2,17 @@ package com.example.catboy;
 
 import org.apache.tomcat.util.json.ParseException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 
 public class Handler {
 
-    private Handler() {}
+    private static final Logger LOGGER = LoggerFactory.getLogger(Handler.class);
 
-    public static String getAnswer(String input) {
+    public String getAnswer(String input) {
         String answer;
         switch (input) {
             case (""):
@@ -29,7 +31,7 @@ public class Handler {
         return answer;
     }
 
-    public static String getBotAnswer(String input) {
+    public String getBotAnswer(String input) {
         String answer;
         switch (input) {
             case ("/start"):
@@ -48,11 +50,11 @@ public class Handler {
         return answer;
     }
 
-    private static String startHandler() {
+    private String startHandler() {
         return "Hi! It's test bot. I know commands /ping and /catboy";
     }
 
-    private static String pingHandler() {
+    private String pingHandler() {
         String serverAnswer = sendRequest("https://api.catboys.com/ping");
         if (serverAnswer == null) {
             return "Unknown server error";
@@ -65,7 +67,7 @@ public class Handler {
         return null;
     }
 
-    private static String catboyHandler() {
+    private String catboyHandler() {
         String serverAnswer = sendRequest("https://api.catboys.com/catboy");
         if (serverAnswer == null) {
             return "Unknown server error";
@@ -78,7 +80,7 @@ public class Handler {
         return null;
     }
 
-    private static String sendRequest(String url) {
+    private String sendRequest(String url) {
         try {
             RestTemplate restTemplate = new RestTemplate();
             HttpHeaders headers = new HttpHeaders();
@@ -86,10 +88,13 @@ public class Handler {
             headers.add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
             HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
+            LOGGER.info("Sending request to {}", url);
             ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
+            LOGGER.info("Response ok");
             return response.getBody();
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LOGGER.error("Error when sending request: " + ex);
+//            ex.printStackTrace();
         }
         return null;
     }

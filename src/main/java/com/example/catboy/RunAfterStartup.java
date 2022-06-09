@@ -1,5 +1,7 @@
 package com.example.catboy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -14,14 +16,16 @@ public class RunAfterStartup {
     @Autowired
     private BotConfig botconfig;
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(Handler.class);
+
     @EventListener(ApplicationReadyEvent.class)
     public void runAfterStartup() {
-        System.out.println("USERNAME" + botconfig.getUsername());
         try {
             TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
             botsApi.registerBot(new Bot(botconfig.getUsername(), botconfig.getToken()));
+            LOGGER.info("Bot " + botconfig.getUsername() + " started");
         } catch (TelegramApiException e) {
-            e.printStackTrace();
+            LOGGER.error("Error while starting bot: " + e);
         }
     }
 }

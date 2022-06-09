@@ -6,18 +6,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
+    static Handler handler = new Handler();
+
     @RequestMapping(value = "")
     public static String commandStart() {
-        return Handler.getAnswer("");
+        return handler.getAnswer("");
     }
 
     @RequestMapping(value = "ping")
     public static String commandPing() {
-        return Handler.getAnswer("ping");
+        return handler.getAnswer("ping");
     }
 
     @RequestMapping(value = "catboy")
     public static String commandCatboy() {
-        return Handler.getAnswer("catboy");
+        return handler.getAnswer("catboy");
     }
 }
