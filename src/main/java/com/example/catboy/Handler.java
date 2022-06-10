@@ -35,7 +35,7 @@ public class Handler {
         String answer;
         switch (input) {
             case ("/start"):
-                answer = "Hi! It's test bot. I know commands /ping and /catboy";
+                answer = startHandler();
                 break;
             case ("/ping"):
                 answer = pingHandler();
@@ -94,7 +94,6 @@ public class Handler {
             return response.getBody();
         } catch (Exception ex) {
             LOGGER.error("Error when sending request: " + ex);
-//            ex.printStackTrace();
         }
         return null;
     }

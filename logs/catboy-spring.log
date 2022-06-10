@@ -1,23 +1,9 @@
-2022-06-09 22:47:30.942  INFO 96701 --- [main] com.example.catboy.CatboyApplication     : Starting CatboyApplication using Java 1.8.0_261 on at-j3.msk.21-school.ru with PID 96701 (/Users/fbeatris/IdeaProjects/Catboy/target/classes started by fbeatris in /Users/fbeatris/IdeaProjects/Catboy)
-2022-06-09 22:47:30.944  INFO 96701 --- [main] com.example.catboy.CatboyApplication     : No active profile set, falling back to 1 default profile: "default"
-2022-06-09 22:47:32.106  INFO 96701 --- [main] com.example.catboy.CatboyApplication     : Started CatboyApplication in 1.76 seconds (JVM running for 2.432)
-2022-06-09 22:47:42.077  INFO 96701 --- [http-nio-127.0.0.1-8080-exec-1] com.example.catboy.Handler               : Sending request to https://api.catboys.com/ping
-2022-06-09 22:47:42.591  INFO 96701 --- [http-nio-127.0.0.1-8080-exec-1] com.example.catboy.Handler               : Response ok
-2022-06-09 22:48:09.458  INFO 96701 --- [http-nio-127.0.0.1-8080-exec-2] com.example.catboy.Handler               : Sending request to https://api.catboys.com/catboy
-2022-06-09 22:48:09.860  INFO 96701 --- [http-nio-127.0.0.1-8080-exec-2] com.example.catboy.Handler               : Response ok
-2022-06-09 22:52:10.028  INFO 99996 --- [main] com.example.catboy.CatboyApplication     : Starting CatboyApplication using Java 1.8.0_261 on at-j3.msk.21-school.ru with PID 99996 (/Users/fbeatris/IdeaProjects/Catboy/target/classes started by fbeatris in /Users/fbeatris/IdeaProjects/Catboy)
-2022-06-09 22:52:10.031  INFO 99996 --- [main] com.example.catboy.CatboyApplication     : No active profile set, falling back to 1 default profile: "default"
-2022-06-09 22:52:11.342  INFO 99996 --- [main] com.example.catboy.CatboyApplication     : Started CatboyApplication in 1.723 seconds (JVM running for 2.24)
-2022-06-09 22:52:12.187  INFO 99996 --- [main] com.example.catboy.Handler               : Bot CatboySpring_bot started
-2022-06-09 22:52:20.644  INFO 99996 --- [http-nio-127.0.0.1-8080-exec-1] com.example.catboy.Handler               : Sending request to https://api.catboys.com/catboy
-2022-06-09 22:52:21.194  INFO 99996 --- [http-nio-127.0.0.1-8080-exec-1] com.example.catboy.Handler               : Response ok
-2022-06-09 22:55:15.164  INFO 2447 --- [main] com.example.catboy.CatboyApplication     : Starting CatboyApplication using Java 1.8.0_261 on at-j3.msk.21-school.ru with PID 2447 (/Users/fbeatris/IdeaProjects/Catboy/target/classes started by fbeatris in /Users/fbeatris/IdeaProjects/Catboy)
-2022-06-09 22:55:15.178  INFO 2447 --- [main] com.example.catboy.CatboyApplication     : No active profile set, falling back to 1 default profile: "default"
-2022-06-09 22:55:16.273  INFO 2447 --- [main] com.example.catboy.CatboyApplication     : Started CatboyApplication in 1.633 seconds (JVM running for 2.144)
-2022-06-09 22:55:16.987  INFO 2447 --- [main] com.example.catboy.Handler               : Bot CatboySpring_bot started
-2022-06-09 22:58:52.634  INFO 5257 --- [main] com.example.catboy.CatboyApplication     : Starting CatboyApplication using Java 1.8.0_261 on at-j3.msk.21-school.ru with PID 5257 (/Users/fbeatris/IdeaProjects/Catboy/target/classes started by fbeatris in /Users/fbeatris/IdeaProjects/Catboy)
-2022-06-09 22:58:52.638  INFO 5257 --- [main] com.example.catboy.CatboyApplication     : No active profile set, falling back to 1 default profile: "default"
-2022-06-09 22:58:53.885  INFO 5257 --- [main] com.example.catboy.CatboyApplication     : Started CatboyApplication in 1.673 seconds (JVM running for 2.135)
-2022-06-09 22:58:54.590  INFO 5257 --- [main] com.example.catboy.Handler               : Bot CatboySpring_bot started
-2022-06-09 22:59:07.451  INFO 5257 --- [http-nio-127.0.0.1-8080-exec-1] com.example.catboy.Handler               : Sending request to https://api.catboys.com/catboy
-2022-06-09 22:59:08.041  INFO 5257 --- [http-nio-127.0.0.1-8080-exec-1] com.example.catboy.Handler               : Response ok
+2022-06-10 16:26:10.988  INFO 17769 --- [main] com.example.catboy.CatboyApplication     : Starting CatboyApplication using Java 1.8.0_261 on at-f1.msk.21-school.ru with PID 17769 (/Users/fbeatris/IdeaProjects/Catboy/target/classes started by fbeatris in /Users/fbeatris/IdeaProjects/Catboy)
+2022-06-10 16:26:10.991  INFO 17769 --- [main] com.example.catboy.CatboyApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-06-10 16:26:12.047  INFO 17769 --- [main] com.example.catboy.CatboyApplication     : Started CatboyApplication in 1.499 seconds (JVM running for 2.194)
+2022-06-10 16:26:12.622  INFO 17769 --- [main] com.example.catboy.Handler               : Bot CatboySpring_bot started
+2022-06-10 16:26:28.796  INFO 17769 --- [http-nio-127.0.0.1-8080-exec-2] com.example.catboy.Handler               : Sending request to https://api.catboys.com/ping
+2022-06-10 16:26:29.353  INFO 17769 --- [http-nio-127.0.0.1-8080-exec-2] com.example.catboy.Handler               : Response ok
+2022-06-10 16:26:33.954  INFO 17769 --- [http-nio-127.0.0.1-8080-exec-3] com.example.catboy.Handler               : Sending request to https://api.catboys.com/catboy
+2022-06-10 16:26:34.138  INFO 17769 --- [http-nio-127.0.0.1-8080-exec-3] com.example.catboy.Handler               : Response ok
+2022-06-10 16:26:39.975 ERROR 17769 --- [http-nio-127.0.0.1-8080-exec-4] com.example.catboy.Handler               : error 404. Command: http://localhost:8080/error
