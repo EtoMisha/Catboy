@@ -6,3 +6,9 @@
 2022-09-03 22:10:55.136  INFO 92459 --- [http-nio-127.0.0.1-8080-exec-2] catboy.services.SendServiceImpl          : Sending request to https://api.catboys.com/catboy
 2022-09-03 22:10:55.572  INFO 92459 --- [http-nio-127.0.0.1-8080-exec-2] catboy.services.SendServiceImpl          : Response ok
 2022-09-03 22:11:10.224 ERROR 92459 --- [http-nio-127.0.0.1-8080-exec-4] catboy.controller.ErrorController        : error 404. Command: http://localhost:8080/error
+2022-09-03 22:17:12.891  INFO 93075 --- [main] catboy.app.CatboyApplication             : Starting CatboyApplication using Java 1.8.0_342 on at-r2.msk.21-school.ru with PID 93075 (/Users/fbeatris/Documents/Catboy/target/classes started by fbeatris in /Users/fbeatris/Documents/Catboy)
+2022-09-03 22:17:12.895  INFO 93075 --- [main] catboy.app.CatboyApplication             : No active profile set, falling back to 1 default profile: "default"
+2022-09-03 22:17:13.855  INFO 93075 --- [main] catboy.app.CatboyApplication             : Started CatboyApplication in 1.374 seconds (JVM running for 1.93)
+2022-09-03 22:17:19.382 ERROR 93075 --- [http-nio-127.0.0.1-8080-exec-1] catboy.controller.ErrorController        : error 404. Command: http://localhost:8080/error
+2022-09-03 22:17:21.947  INFO 93075 --- [http-nio-127.0.0.1-8080-exec-2] catboy.services.SendServiceImpl          : Sending request to https://api.catboys.com/ping
+2022-09-03 22:17:22.778  INFO 93075 --- [http-nio-127.0.0.1-8080-exec-2] catboy.services.SendServiceImpl          : Response ok
